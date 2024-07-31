@@ -10,6 +10,6 @@ namespace CRUD_API.Models
         }
 
         public DbSet<Employee> Employees { get; set; } = null!;
-
+        public DbSet<Users> Users { get; set; } = null!;
     }
 }
