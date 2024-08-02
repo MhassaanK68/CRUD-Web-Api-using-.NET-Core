@@ -47,7 +47,14 @@ namespace CRUD_API.Controllers
                 Users ThisUser = _db.Users.FirstOrDefault(x => x.Username == request.Username);
                 if (ThisUser.Password == request.Password)
                 {
-                    return CreateToken(request);
+                    try
+                    {
+                        return "Token : " + CreateToken(request);
+                    }
+                    catch (Exception e)
+                    {
+                        return "An Error Occured During Token Creation";
+                    }
                 }
                 else
                 {

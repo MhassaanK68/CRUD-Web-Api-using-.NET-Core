@@ -20,7 +20,7 @@ namespace CRUD_API.Controllers
         }
 
 
-        [HttpPost("{EmployeeString}")]
+        [HttpPost("Create/{EmployeeString}")]
         public string CreateEmployee(string EmployeeString)
         {
             try 
@@ -37,7 +37,7 @@ namespace CRUD_API.Controllers
 
 }
 
-        [HttpGet("{Employee_ID}")]
+        [HttpGet("Search/{Employee_ID}")]
         public string SearchEmployee(int Employee_ID)
         {
             var ReturnVal = _employeeService.GetEmployeeByID(Employee_ID);
@@ -45,7 +45,7 @@ namespace CRUD_API.Controllers
         }
 
 
-        [HttpGet]
+        [HttpGet("GetAll")]
         public string GetAllEmployees()
         {
             var ReturnVal = _employeeService.GetEmployees();
@@ -53,14 +53,14 @@ namespace CRUD_API.Controllers
         }
 
 
-        [HttpPut("id={ID}")]
+        [HttpPut("Update/{ID}")]
         public string UpdateEmployee(int ID, Employee EmployeeDetails)
         {
             var ReturnVal = _employeeService.UpdateEmployee(ID, EmployeeDetails);
             return ReturnVal;
         }
 
-        [HttpDelete("id={ID}")]
+        [HttpDelete("Delete/{ID}")]
         public string DeleteEmployee(int ID)
         {
             var ReturnVal = _employeeService.DeleteEmployee(ID);
